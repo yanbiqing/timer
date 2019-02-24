@@ -13,7 +13,7 @@ import {timer} from './timer';
 | subscribeLocalStorage | 是否开启同步本地localStory功能, 开启后每次刷新页面都可以获得时间间隔从而继续开始计时而不是重新开始计时, 注意是以时间节点来存储,会自动计算剩下的时间<br />**默认**: true | Boolean  |                                                              |
 | LocalStorageKey       | 指定localStory中存储的名字, 防止多个计时器互相干扰<br />**默认**: "timeLeft" | String   |                                                              |
 | timer                 | 绑定计时器对象, 可以指定全局对象,                            | Object   |                                                              |
-| timerKey              | 全局timer对象下的key名,多个计时器可以指定不同的key名防止互相干扰<br />**默认**:"myt" |          |                                                              |
+| timerKey              | 全局timer对象下的key名,多个计时器可以指定不同的key名防止互相干扰<br />**默认**:"myt" | String   |                                                              |
 | enterCb               | 进入计时器但没开始计时的函数                                 | Function |                                                              |
 | leave_unFinished_Cb   | 开启pageAuto后, 如果时间间隔大于指定的倒计时秒数就会自动退出函数并调用此方法 | Function |                                                              |
 | timeStartCb           | 计时器开始计时之前调用, 用来初始化倒计时显示容器(重要)       | Function | timeBetween<br />时间间隔, 用来初始化剩余时间或者从新开始计数, 若剩余时间间隔<指定的time 则继续计数, 否则从time值开始计数 |
