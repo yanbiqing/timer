@@ -4,7 +4,12 @@
 
 ### 使用方法
 
+(vue示例)
+
 ```javascript
+// 引入 
+import Timer  from './timer.js'
+
 // mounted
   mounted() {
     const _this = this;
