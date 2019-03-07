@@ -6,7 +6,7 @@ export default class Timer {
         timeStartCb, // 刚开始计数之前调用
         timeFinishedCb, // 倒计时完成时候的调用
         timeRuntimeCb, // 每次运行计数器时候的调用
-        LocalStorageKey = 'this._timeLeft', // localStorage的key
+        LocalStorageKey = 'timeLeft', // localStorage的key
         subscribeLocalStorage = true, // 是否开启localStorage模式, 用户刷新页面后也会根据时间点自动计算剩余时间后继续计时
     }) {
         this.time = time;
@@ -43,7 +43,7 @@ export default class Timer {
     _start() {
   
         // start meethod
-        typeof enterCb === 'function' && enterCb()
+        typeof this.enterCb === 'function' && this.enterCb()
         // 读取localStorage中的时间点
         if (this.subscribeLocalStorage) {
             this._timeLeft = localStorage.getItem(this.LocalStorageKey);
@@ -87,8 +87,8 @@ export default class Timer {
             // 如果小于<=0
             if (this._count <= 0) {
                 clearInterval(this.timer);
-                // finished Func
                 typeof this.timeFinishedCb === 'function' && this.timeFinishedCb()
+                // finished Func
 
             } else {
                 // runtime Func
